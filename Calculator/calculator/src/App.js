@@ -4,8 +4,6 @@ import './App.css';
 
 import '../public/styleSheet.css';
 
-import INPUT from '../components/input'
-
 class App extends Component {
   constructor (props) {
     super (props);
