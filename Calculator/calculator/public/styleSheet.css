@@ -1,0 +1,56 @@
+.inputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.INPUT {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.INPUT input {
+    text-align: center;
+    height: 30px;
+    border-radius: 10px;
+    border-width: 2px;
+    font-size: 16px;
+}
+
+.resultBtn {
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #60DAFB;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.resultBtnAutoGreen {
+    margin: 30px;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(75, 196, 51);
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.resultBtnAutoRed {
+    margin: 30px;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(226, 13, 13);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.result{
+    font-size: 50px;
+    font-weight: bold;
+    color: blueviolet;
+}
