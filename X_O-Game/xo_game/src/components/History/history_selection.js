@@ -2,28 +2,31 @@ import React from 'react';
 import Select from 'react-select';
 
 export default class History extends React.Component {
-  constructor(props){
-    super(props);
+  constructor (props) {
+    super (props);
     this.state = {
       isAscending: true,
-    }
+    };
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = selectedMove => {
-    this.setState ({selectedMove}); 
+  handleChange (selectedMove) {
     const selectedMoveIndex = this.props.moves.indexOf (selectedMove);
     // console.log (`Option selected:`, selectedMove);
     // console.log (`Option selected index:`, selectedMoveIndex);
     this.props.resetMoves (selectedMoveIndex);
   };
 
-  changeOrder = () => {
-    this.setState({isAscending: 1 - this.state.isAscending});
+  changeOrder () {
+    this.setState ({isAscending: !this.state.isAscending});
   }
 
   render () {
     const selectedMove = this.props.latestMove;
-    const moves = this.state.isAscending ? this.props.moves : this.props.moves.slice().reverse();
+    const moves = this.state.isAscending
+      ? this.props.moves
+      : this.props.moves.slice ().reverse ();
+
     return (
       <div>
         <Select
@@ -33,7 +36,7 @@ export default class History extends React.Component {
           options={moves}
         />
         <div style={{display: 'flex', justifyContent: 'center', marginTop: 10}}>
-          <button onClick={() => this.changeOrder()}>Change order</button>
+          <button onClick={() => this.changeOrder ()}>Change order</button>
         </div>
       </div>
     );

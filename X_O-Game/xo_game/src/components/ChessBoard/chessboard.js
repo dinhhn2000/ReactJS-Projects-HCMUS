@@ -21,7 +21,7 @@ class ChessBoard extends Component {
     );
   }
 
-  renderChessBoardCoordinate = async () => {
+  renderChessBoardCoordinate () {
     let updateChessBoard = this.state.cells;
     for (let i = 0; i < updateChessBoard.length; i++) {
       updateChessBoard[i][0] = i.toString ();
@@ -29,8 +29,8 @@ class ChessBoard extends Component {
     for (let i = 0; i < updateChessBoard[0].length; i++) {
       updateChessBoard[0][i] = i.toString ();
     }
-    await this.setState ({cells: updateChessBoard});
-  };
+    this.setState ({cells: updateChessBoard});
+  }
 
   componentDidMount () {
     this.renderChessBoardCoordinate ();
@@ -101,11 +101,11 @@ class ChessBoard extends Component {
     }
   }
 
-  announceTheWinner = () => {
+  announceTheWinner () {
     let alertStr = this.state.xIsNext ? 'O is the winner' : 'X is the winner';
     alert (`${alertStr}. Play again?`);
     location.reload ();
-  };
+  }
 
   async resetChessBoard (moveIndex) {
     let updateMoves = this.state.moves.slice (0, moveIndex + 1);
@@ -125,7 +125,7 @@ class ChessBoard extends Component {
       currentMove,
       xIsNext: currentMove.value.player === 'X' ? false : true,
     });
-    this.renderChessBoardCoordinate();
+    this.renderChessBoardCoordinate ();
   }
 
   render () {
