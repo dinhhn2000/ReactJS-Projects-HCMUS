@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import ChessBoard from './components/ChessBoard/chessboard';
+import ChessBoard from './containers/chessboard';
 
 class App extends Component {
   constructor (props) {

@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-import Cell from '../Cell/cell';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import Cell from '../components/Cell/cell';
 import './styles.css';
-import checkWin from './checkCondition';
-import HistoryBoard from '../History/history_selection';
+import checkWin from '../components/ChessBoard/checkCondition';
+import HistoryBoard from '../components/History/history_selection';
+import * as moveActions from '../actions/moveActions';
 
 class ChessBoard extends Component {
   constructor (props) {
@@ -12,7 +15,7 @@ class ChessBoard extends Component {
         new Array (this.props.CHESS_SIZE_COL).fill (null)
       ),
       xIsNext: true,
-      moves: [{value: {player: '', i: -1, j: -1}, label: 'Start move'}],
+      moves: props.moves.moveAction,
       currentMove: null,
       winnerMoves: [],
     };
@@ -70,17 +73,24 @@ class ChessBoard extends Component {
     let player = this.state.xIsNext ? 'X' : 'O';
 
     // Check if the chessboard is in history or not
-    let {moves} = this.state;
-    if (this.state.currentMove !== moves.slice (-1)[0] && moves.length > 1) {
-      moves = moves.slice (0, moves.indexOf (this.state.currentMove) + 1);
-    }
+    let moves = this.props.moves.moveAction;
+    if (this.state.currentMove !== null)
+      if (
+        this.state.currentMove.label !== moves.slice ().pop ().label &&
+        moves.length > 1
+      ) {
+        this.props.actions.resetMove (moves.indexOf (this.state.currentMove));
+        console.log ('Sliced');
+      }
 
     // Add move to history
+    // console.log (moves.length);
     let currentMove = {
       value: {player, i, j},
       label: `Move No.${moves.length} - Player: ${player} - Position: ( ${i} - ${j} )`,
     };
-    moves.push (currentMove);
+    await this.props.actions.addMove (currentMove);
+    moves = this.props.moves.moveAction;
 
     await this.setState ({
       cells: tempCells,
@@ -102,12 +112,19 @@ class ChessBoard extends Component {
   }
 
   announceTheWinner () {
+    console.log(this.props.moves.moveAction);
+    
     let alertStr = this.state.xIsNext ? 'O is the winner' : 'X is the winner';
     alert (`${alertStr}. Play again?`);
     location.reload ();
   }
 
   async resetChessBoard (moveIndex) {
+    // Reset move in redux
+    await this.props.actions.resetMove (moveIndex);
+    // console.log(this.props.moves.moveAction);
+    
+    // Reset chessboard
     let updateMoves = this.state.moves.slice (0, moveIndex + 1);
     let updateChessBoard = Array.from (Array (this.props.CHESS_SIZE_ROW), () =>
       new Array (this.props.CHESS_SIZE_COL).fill (null)
@@ -166,4 +183,16 @@ class ChessBoard extends Component {
   }
 }
 
-export default ChessBoard;
+const mapStateToProps = state => {
+  return {
+    moves: state,
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators (moveActions, dispatch),
+  };
+};
+
+export default connect (mapStateToProps, mapDispatchToProps) (ChessBoard);
