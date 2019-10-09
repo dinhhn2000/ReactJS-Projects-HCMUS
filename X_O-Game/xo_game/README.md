@@ -19,7 +19,14 @@ Using React JS to build a game (XO game)
 * Upload to host (1 pt)
 ### Second term
 * Show move's coordinate in history board (2pt)
-* Highlight the selected move in history board
-* Change the order of moves in history board
-* When player won, show the victory pattern
-* Upload to host
+* Highlight the selected move in history board (2pt)
+* Change the order of moves in history board (2pt)
+* When player won, show the victory pattern (2pt)
+* Upload to host (2pt)
+### Third term (Add redux to project)
+* Organize folders include actions, components, containers, reducers, ... (1pt)
+* Create redux actions (1pt)
+* Create redux reducers (3pt)
+* Connect redux to containers (3pt)
+* Commit & push to git (1pt)
+* Upload to host (1pt)
