@@ -1,5 +1,5 @@
 {
-  "name": "authentication-with-passport-jwt",
+  "name": "demo",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -14,11 +14,9 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
     "mysql": "^2.17.1",
+    "nodemon": "^1.19.4",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^1.19.3"
   }
 }
