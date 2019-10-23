@@ -5,7 +5,7 @@ import {
     POST_REGISTER_PENDING,
     POST_REGISTER_SUCCESS,
     POST_REGISTER_ERROR,
-    GET_USER_STATE
+    SET_USER_EMAIL
 } from '../actions/auth.action';
 
 const initialState = {
@@ -52,9 +52,10 @@ export default function authReducer(state = initialState, action) {
                 pending: false,
                 error: action.error
             }
-        case GET_USER_STATE:
+        case SET_USER_EMAIL:
             return {
                 ...state,
+                email: action.email
             }
         default:
             return state;
@@ -64,6 +65,6 @@ export default function authReducer(state = initialState, action) {
 export const getLoginToken = state => state.token;
 export const getLoginPending = state => state.pending;
 export const getLoginError = state => state.error;
-export const getRegisterEmail = state => state.email;
+export const getRegisterEmail = state => {return state.email};
 export const getRegisterPending = state => state.pending;
 export const getRegisterError = state => state.error;

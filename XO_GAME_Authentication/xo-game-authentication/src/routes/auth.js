@@ -4,7 +4,8 @@ import {
     postLoginError,
     postRegisterPending,
     postRegisterSuccess,
-    postRegisterError
+    postRegisterError,
+    // setUserEmail
 } from '../actions/auth.action';
 import axios from 'axios';
 
@@ -15,10 +16,10 @@ export function loginAction(data) {
         axios.post("http://localhost:4000/login", data)
             .then(res => {
                 console.log(res.data);
-                // console.log(data);
                 dispatch(postLoginSuccess(res.data.token, data.email));
+                // dispatch(setUserEmail(data.email));
                 console.log(getState());
-                
+                window.location.replace("/");
                 return res.data.token;
             })
             .catch(err => {
@@ -32,6 +33,25 @@ export function registerAction(data) {
     return (dispatch, getState) => {
         dispatch(postRegisterPending());
 
+        axios.post("http://localhost:4000/register", data)
+            .then(res => {
+                console.log(res.data);
+                dispatch(postRegisterSuccess(res.data.token));
+                window.location.replace("/login");
+                return res.data.token;
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch(postRegisterError(err));
+            })
+    }
+}
+
+export function checkUserAction(data) {
+    return (dispatch, getState) => {
+        dispatch(postRegisterPending());
+        console.log(getState());
+        
         axios.post("http://localhost:4000/register", data)
             .then(res => {
                 console.log(res.data);

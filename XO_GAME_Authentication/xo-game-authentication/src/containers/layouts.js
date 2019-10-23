@@ -1,11 +1,13 @@
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import React from 'react'
 import { connect } from 'react-redux';
-// import { getLoginToken, getRegisterEmail } from "../reducers/auth.reducer";
+import { getLoginToken, getRegisterEmail } from "../reducers/auth.reducer";
 // import { getUserState } from "../actions/auth.action"
 
 const Layout = (props) => {
     // setInterval(() => console.log(props.user), 3000);
+    console.log(props);
+    
 
     return (
         <div>
@@ -32,11 +34,12 @@ const Layout = (props) => {
     )
 }
 
-
-const mapStateToProps = state => ({
-    // userToken: getLoginToken(state),
-    user: state
-})
+const mapStateToProps = state => {
+    return {
+        userToken: getLoginToken(state),
+        user: getRegisterEmail(state)
+    };
+}
 
 export default connect(
     mapStateToProps,

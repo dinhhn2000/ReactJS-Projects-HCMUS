@@ -1,0 +1,21 @@
+.board-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.status {
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.chessBoard {
+    margin-bottom: 100px !important;
+}
+
+#body {
+    padding: 0px 60px !important;
+    margin: 0px 60px !important;
+}

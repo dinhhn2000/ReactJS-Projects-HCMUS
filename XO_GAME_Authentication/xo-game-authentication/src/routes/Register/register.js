@@ -72,7 +72,7 @@ function Register(props) {
 
 const mapStateToProps = state => ({
     error: getRegisterError(state),
-    token: getRegisterEmail(state),
+    email: getRegisterEmail(state),
     pending: getRegisterPending(state)
 })
 

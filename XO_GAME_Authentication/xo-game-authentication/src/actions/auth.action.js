@@ -4,7 +4,7 @@ export const POST_LOGIN_ERROR = 'POST_LOGIN_ERROR';
 export const POST_REGISTER_PENDING = 'POST_REGISTER_PENDING';
 export const POST_REGISTER_SUCCESS = 'POST_REGISTER_SUCCESS';
 export const POST_REGISTER_ERROR = 'POST_REGISTER_ERROR';
-export const GET_USER_STATE = 'GET_USER_STATE';
+export const SET_USER_EMAIL = 'SET_USER_EMAIL';
 
 export function postLoginPending() {
     return {
@@ -46,8 +46,9 @@ export function postRegisterError(error) {
     }
 }
 
-export function getUserState() {
+export function setUserEmail(email) {
     return {
-        type: GET_USER_STATE,
+        type: SET_USER_EMAIL,
+        email
     }
 }

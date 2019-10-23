@@ -4,7 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Home } from './routes/Home/home';
+import Home from './routes/Home/home';
 import Login from './routes/Login/login';
 import Register from './routes/Register/register';
 import { Error } from './routes/error';
