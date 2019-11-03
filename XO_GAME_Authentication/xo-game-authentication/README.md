@@ -10,7 +10,7 @@ Using React JS to build a game (XO game) and Nodejs to build API (using JWT) for
 ```
   npm start
 ```
-## Self-evaluation (8.0)
+## Self-evaluation (8testapi-1612107).0)
 * Use React Router for homepage, login, register (2 pt)
 * Use React Bootstrap to make UI for these pages (2 pt)
 * Use Redux Thunk to call API (2 pt)

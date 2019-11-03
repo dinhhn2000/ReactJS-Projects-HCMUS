@@ -1,0 +1,36 @@
+.ChangeMoveBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 200px;
+}
+
+.UndoBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 0px;
+    background-color: #58c5a1;
+    color: white;
+    border-bottom: solid 4px #42876d;
+}
+
+.RedoBtn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 0px;
+    background-color: #58c5a1;
+    color: white;
+    border-bottom: solid 4px #42876d;
+}
+
+.UndoBtn:hover {
+    color: grey;
+}
+.RedoBtn:hover {
+    color: grey;
+}

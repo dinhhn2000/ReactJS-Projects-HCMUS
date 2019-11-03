@@ -5,14 +5,14 @@ import {
     POST_REGISTER_PENDING,
     POST_REGISTER_SUCCESS,
     POST_REGISTER_ERROR,
-    SET_USER_EMAIL
+    POST_AUTH_PENDING,
+    POST_AUTH_SUCCESS,
+    POST_AUTH_ERROR
 } from '../actions/auth.action';
 
 const initialState = {
     pending: false,
-    token: "",
     error: null,
-    email: "",
 }
 
 export default function authReducer(state = initialState, action) {
@@ -26,8 +26,6 @@ export default function authReducer(state = initialState, action) {
             return {
                 ...state,
                 pending: false,
-                token: action.token,
-                email: action.email,
             }
         case POST_LOGIN_ERROR:
             return {
@@ -44,7 +42,6 @@ export default function authReducer(state = initialState, action) {
             return {
                 ...state,
                 pending: false,
-                email: action.email,
             }
         case POST_REGISTER_ERROR:
             return {
@@ -52,19 +49,30 @@ export default function authReducer(state = initialState, action) {
                 pending: false,
                 error: action.error
             }
-        case SET_USER_EMAIL:
+        case POST_AUTH_PENDING:
             return {
                 ...state,
-                email: action.email
+                pending: true
+            }
+        case POST_AUTH_SUCCESS:
+            return {
+                ...state,
+                pending: false,
+            }
+        case POST_AUTH_ERROR:
+            return {
+                ...state,
+                pending: false,
+                error: action.error
             }
         default:
             return state;
     }
 }
 
-export const getLoginToken = state => state.token;
-export const getLoginPending = state => state.pending;
-export const getLoginError = state => state.error;
-export const getRegisterEmail = state => {return state.email};
-export const getRegisterPending = state => state.pending;
-export const getRegisterError = state => state.error;
+export const getLoginPending = state => state.authReducer.pending;
+export const getLoginError = state => state.authReducer.error;
+export const getRegisterPending = state => state.authReducer.pending;
+export const getRegisterError = state => state.authReducer.error;
+export const getAuthPending = state => state.authReducer.pending;
+export const getAuthError = state => state.authReducer.error;

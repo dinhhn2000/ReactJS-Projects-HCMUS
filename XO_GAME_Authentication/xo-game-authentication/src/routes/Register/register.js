@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { FormGroup, FormControl, FormLabel, Button } from "react-bootstrap";
+import { FormGroup, FormControl, FormLabel, Button, Alert } from "react-bootstrap";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import "./Signup.css";
-import { registerAction } from '../auth';
-import { getRegisterError, getRegisterPending, getRegisterEmail } from "../../reducers/auth.reducer";
+import "./Register.css";
+import { registerAction } from '../asynchronous.action';
+import { getRegisterError, getRegisterPending } from "../../reducers/auth.reducer";
 
 function Register(props) {
     const [email, setEmail] = useState("");
@@ -24,13 +24,16 @@ function Register(props) {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        console.log({ email, password, name });
-        props.postRegister({ email, password, name });
+        // console.log({ email, password, name });
+        props.postRegister({ email, password, name, method: 'local' });
     }
 
     return (
         <div className="Signup">
             <form onSubmit={handleSubmit}>
+                {props.error && <Alert variant='danger'>
+                    Something wrong happened!!!
+                </Alert>}
                 <FormGroup controlId="email" bsSize="large">
                     <FormLabel>Email</FormLabel>
                     <FormControl
@@ -64,7 +67,7 @@ function Register(props) {
                         value={confirmPassword}
                     />
                 </FormGroup>
-                <Button block bsSize="large" disabled={!validateForm()} type="submit">Login</Button>
+                <Button block bsSize="large" disabled={!validateForm()} type="submit">REGISTER</Button>
             </form>
         </div>
     );
@@ -72,7 +75,6 @@ function Register(props) {
 
 const mapStateToProps = state => ({
     error: getRegisterError(state),
-    email: getRegisterEmail(state),
     pending: getRegisterPending(state)
 })
 

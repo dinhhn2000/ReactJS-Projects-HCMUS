@@ -1,46 +1,87 @@
-import { Navbar, Nav, Container } from 'react-bootstrap'
+import { Navbar, Nav, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import React from 'react'
-import { connect } from 'react-redux';
-import { getLoginToken, getRegisterEmail } from "../reducers/auth.reducer";
-// import { getUserState } from "../actions/auth.action"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons'
 
-const Layout = (props) => {
-    // setInterval(() => console.log(props.user), 3000);
-    console.log(props);
-    
+import '../App.css'
 
-    return (
-        <div>
-            {/* Header */}
-            <Navbar bg="dark" variant="dark" expand="lg">
-                <Navbar.Brand href="/">XO_GAME</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ml-auto">
-                        {props.userToken === "" && <Nav.Link href="#">{props.userEmail}</Nav.Link>}
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/login">Sign in</Nav.Link>
-                        <Nav.Link href="/register">Sign up</Nav.Link>
-                        <Nav.Link href="/register">{props.userEmail}</Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+export default function Layout(props) {
+    const userName = sessionStorage.getItem("userName");
 
-            {/* Body */}
-            <Container>
-                {props.children}
-            </Container>
-        </div>
-    )
+    if (!userName)
+        return (
+            <div className="body1">
+                {/* Header */}
+                <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+                    <Navbar.Brand href="/">
+                        <img src="./logo.png" style={{ height: 30, marginRight: 10 }} alt="LOGO"></img>
+                        XO_GAME
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="ml-auto">
+                            {props.userToken === "" && <Nav.Link href="#">{props.userEmail}</Nav.Link>}
+                            <Nav.Link href="/">Home</Nav.Link>
+                            <Nav.Link href="/login">Sign in</Nav.Link>
+                            <Nav.Link href="/register">Sign up</Nav.Link>
+                            <Nav.Link href="/register">{props.userEmail}</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+
+                {/* Body */}
+                <div>
+                    {props.children}
+                </div>
+            </div>
+        )
+    else {
+        return (
+            <div className="body1">
+                {/* Header */}
+                <Navbar bg="dark" variant="dark" expand="lg">
+                    <Navbar.Brand href="/">
+                        <img src="./logo.png" style={{ height: 30, marginRight: 10 }} alt="LOGO"></img>
+                        XO_GAME
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="ml-auto">
+                            {props.userToken === "" && <Nav.Link href="#">{props.userEmail}</Nav.Link>}
+                            <Nav.Link href="/profile">Hello {userName}</Nav.Link>
+                            <Nav.Link href="/login" onClick={() => sessionStorage.clear()}>
+                                <OverlayTrigger
+                                    placement='bottom'
+                                    overlay={
+                                        <Tooltip id={`tooltip-sign-out`}>
+                                            Sign out
+                                        </Tooltip>
+                                    }
+                                >
+                                    <FontAwesomeIcon icon={faSignOutAlt} />
+                                </OverlayTrigger>
+                            </Nav.Link>
+                            <Nav.Link href="/profile">
+                                <OverlayTrigger
+                                    placement='bottom'
+                                    overlay={
+                                        <Tooltip id={`tooltip-profile`}>
+                                            Profile
+                                        </Tooltip>
+                                    }
+                                >
+                                    <FontAwesomeIcon icon={faUser} />
+                                </OverlayTrigger>
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+
+                {/* Body */}
+                <div>
+                    {props.children}
+                </div>
+            </div>
+        )
+    }
 }
-
-const mapStateToProps = state => {
-    return {
-        userToken: getLoginToken(state),
-        user: getRegisterEmail(state)
-    };
-}
-
-export default connect(
-    mapStateToProps,
-)(Layout);

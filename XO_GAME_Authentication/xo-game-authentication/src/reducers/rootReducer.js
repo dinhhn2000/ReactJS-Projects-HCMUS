@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import authReducer from './auth.reducer';
-import moveAction from './moveReducers';
+import profileReducer from './profile.reducer';
+import gameReducer from './game.reducers'
 
 const rootReducer = combineReducers({
-  authReducer, moveAction
+  authReducer, profileReducer, gameReducer
 });
 
 export default rootReducer;

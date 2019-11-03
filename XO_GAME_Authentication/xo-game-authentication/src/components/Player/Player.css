@@ -1,0 +1,51 @@
+@media screen and (max-width: 1000px) {
+    .Player {
+        width: 150px !important;
+        height: 100%;
+        margin: 0px !important;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .playerName {
+        font-size: large;
+        margin: 10px;
+        text-align: center;
+        font-weight: bold;
+        color: whitesmoke;
+    }
+
+    .playerAvatar {
+        width: 100px !important;
+        height: 100px !important;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .Player {
+        width: 200px !important;
+        height: 100%;
+        margin: 0px !important;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .playerName {
+        font-size: x-large;
+        margin: 10px;
+        text-align: center;
+        font-weight: bold;
+        color: whitesmoke;
+    }
+
+    .playerAvatar {
+        width: 140px !important;
+        height: 140px !important;
+    }
+}
