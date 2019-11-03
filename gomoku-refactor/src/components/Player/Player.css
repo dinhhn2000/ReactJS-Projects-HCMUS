@@ -1,0 +1,37 @@
+@media screen and (max-width: 1000px) {
+    .Player {
+        width: 150px !important;
+        height: 100%;
+        margin: 0px !important;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .playerName {
+        font-size: large;
+        margin: 10px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .Player {
+        width: 200px !important;
+        height: 100%;
+        margin: 0px !important;
+        padding-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .playerName {
+        font-size: x-large;
+        margin: 10px;
+        text-align: center;
+    }
+}
