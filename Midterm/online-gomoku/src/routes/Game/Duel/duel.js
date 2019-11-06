@@ -48,7 +48,7 @@ class Duel extends Component {
 
         // Register new player complete
         socket.on('registerComplete', data => {
-            console.log("Connect success to socket");
+            // console.log("Connect success to socket");
             // Find rival to play
             socket.emit('findRival', userId);
             this.setState({
@@ -59,7 +59,7 @@ class Duel extends Component {
         // Listen when server found rival & get rival's info
         socket.on('foundRoom', data => {
             let roomId = data.id;
-            console.log(roomId);
+            // console.log(roomId);
             let playerId = roomId.split('_');
             if (userId === playerId[0]) {
                 this.props.getRivalProfile({
@@ -82,7 +82,7 @@ class Duel extends Component {
 
         // Listen when server create room for player
         socket.on('Welcome', () => {
-            console.log('Enter the room');
+            // console.log('Enter the room');
             this.setState({
                 isFinding: false
             })
@@ -117,7 +117,7 @@ class Duel extends Component {
     }
 
     announceWinner(winnerMove) {
-        console.log('rival win');
+        // console.log('rival win');
 
         this.props.winnerMove(winnerMove);
         return setTimeout(() => {

@@ -30,11 +30,11 @@ export function loginAction(data) {
     return (dispatch) => {
         dispatch(postLoginPending());
         let loginUrl = apiUrl + "/login";
-        console.log(loginUrl);
+        // console.log(loginUrl);
 
         axios.post(loginUrl, data)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 dispatch(postLoginSuccess());
 
                 // Save user's token in session storage
@@ -57,11 +57,11 @@ export function loginGoogleAction(data) {
     return (dispatch) => {
         dispatch(postLoginPending());
         let loginUrl = apiUrl + "/login";
-        console.log(loginUrl);
+        // console.log(loginUrl);
 
         axios.post(loginUrl, data)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 dispatch(postLoginSuccess());
 
                 // Save user's token in session storage
@@ -84,11 +84,11 @@ export function loginFacebookAction(data) {
     return (dispatch) => {
         dispatch(postLoginPending());
         let loginUrl = apiUrl + "/login/facebookOauth";
-        console.log(loginUrl);
+        // console.log(loginUrl);
 
         axios.post(loginUrl, data)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 dispatch(postLoginSuccess());
 
                 // Save user's token in session storage
@@ -114,7 +114,7 @@ export function registerAction(data) {
 
         axios.post(registerUrl, data)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 dispatch(postRegisterSuccess());
 
                 window.location.replace("/login");
@@ -140,7 +140,7 @@ export function authAction(data) {
             }
         })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.success)
                     dispatch(postAuthSuccess());
                 else
@@ -168,7 +168,7 @@ export function fetchUserAction(data) {
             }
         })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data) {
                     let imageUrl = res.data.imageUrl;
                     if (imageUrl.includes("public/images/"))
@@ -207,7 +207,7 @@ export function fetchOtherUserAction(data) {
             }
         })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data) {
                     let imageUrl = res.data.imageUrl;
                     if (imageUrl.includes("public/images/"))
@@ -258,7 +258,7 @@ export function updateProfile(data) {
             data: sendData
         })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 sessionStorage.setItem("userName", sendData.name);
                 if (res.data)
                     dispatch(updateUserSuccess());
@@ -288,7 +288,7 @@ export function updateAvatar(data) {
             data: fd
         })
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.avatar)
                     dispatch(updateUserSuccess(res.data.avatar));
                 else

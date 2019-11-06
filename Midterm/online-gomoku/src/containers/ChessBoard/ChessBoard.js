@@ -26,7 +26,6 @@ class ChessBoard extends Component {
             xIsNext: this.props.xIsNext,
             isWaiting: true,
         }
-        console.log(this.props.socketIO);
         
     }
 

@@ -29,7 +29,7 @@ function Login(props) {
     }
 
     const responseFacebook = async (response) => {
-        await console.log(response.accessToken);
+        // await console.log(response.accessToken);
         await props.facebookLogin({ access_token: response.accessToken })
     }
 
