@@ -1,0 +1,9 @@
+.chessBoardCell {
+    background: #ffe3d0;
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgb(131, 131, 131);
+    margin: 0;
+    font-weight: 1000;
+    font-size: large;
+}

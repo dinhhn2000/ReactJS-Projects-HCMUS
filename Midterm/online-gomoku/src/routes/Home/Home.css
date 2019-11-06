@@ -1,0 +1,188 @@
+.Game {
+    padding: 30px;
+    text-align: center;
+}
+
+.Landing-page {
+    /* The image used */
+    background-image: url("/bg.png");
+
+    /* Full height */
+    height: 100vh;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.customBtn {
+    --c: rgb(255, 208, 0) !important;
+    color: var(--c);
+    background-color: transparent;
+    font-size: 30px;
+    border: 0.3em solid var(--c);
+    border-radius: 1em;
+    width: 9em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.2em;
+    text-align: center;
+    line-height: 3em;
+    position: fixed;
+    bottom: 70px;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.customBtn.Single {
+    --c: rgb(255, 208, 0) !important;
+    color: var(--c);
+    background-color: transparent;
+    font-size: 40px;
+    border: 0.3em solid var(--c);
+    border-radius: 1em;
+    width: 9em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.2em;
+    text-align: center;
+    line-height: 3em;
+    position: fixed;
+    bottom: 100px;
+    left: 100px;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.customBtn.Duel {
+    --c: rgb(255, 208, 0) !important;
+    color: var(--c);
+    background-color: transparent;
+    font-size: 40px;
+    border: 0.3em solid var(--c);
+    border-radius: 1em;
+    width: 9em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.2em;
+    text-align: center;
+    line-height: 3em;
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.customBtn span {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    background-color: var(--c);
+    transform: translateY(150%);
+    border-radius: 50%;
+    left: calc((var(--n) - 1) * 25%);
+    transition: 0.5s;
+    transition-delay: calc((var(--n) - 1) * 0.1s);
+    z-index: -1;
+}
+
+.customBtn:hover {
+    color: black;
+}
+
+.customBtn:hover span {
+    transform: translateY(0) scale(2);
+}
+
+.customBtn span:nth-child(1) {
+    --n: 1;
+}
+
+.customBtn span:nth-child(2) {
+    --n: 2;
+}
+
+.customBtn span:nth-child(3) {
+    --n: 3;
+}
+
+.customBtn span:nth-child(4) {
+    --n: 4;
+}
+
+
+
+#restartBtn {
+    margin-bottom: 10px;
+}
+
+@keyframes bgcolor {
+    0% {
+        background-color: #3b85b9
+    }
+
+    30% {
+        background-color: #578f3b
+    }
+
+    60% {
+        background-color: #c0550d
+    }
+
+    90% {
+        background-color: #bd2841
+    }
+
+    100% {
+        background-color: #864cbf
+    }
+}
+
+.App-header {
+    -webkit-animation: bgcolor 20s infinite;
+    animation: bgcolor 10s infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    height: 150px;
+    padding: 20px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.mapSizeLabel {
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.Input {
+    font-size: 20px;
+}
