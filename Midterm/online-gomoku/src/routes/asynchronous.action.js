@@ -289,8 +289,10 @@ export function updateAvatar(data) {
         })
             .then(res => {
                 // console.log(res.data);
-                if (res.data.avatar)
+                if (res.data.avatar){
                     dispatch(updateUserSuccess(res.data.avatar));
+                    window.location.reload();
+                }
                 else
                     dispatch(updateUserError({ error: "Cannot upload avatar" }));
             })

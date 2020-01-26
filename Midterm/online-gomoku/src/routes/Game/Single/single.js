@@ -19,7 +19,7 @@ class Single extends Component {
         const { name, avatar } = this.props;
         return (
             <div className="SinglePlay">
-                {/* <audio src="./bg_music.mp3" autoPlay loop /> */}
+                <audio src="./bg_music.mp3" autoPlay loop />
                 <Player mode="single" color='#e84b3a' mainPlayer={true} name={name} avatar={avatar} />
                 <ChessBoard></ChessBoard>
                 <Player mode="single" color='#56a560' mainPlayer={false} name="COMPUTER" avatar={null} />

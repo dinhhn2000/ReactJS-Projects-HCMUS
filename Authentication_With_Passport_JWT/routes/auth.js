@@ -23,7 +23,7 @@ router.post('/login', function (req, res, next) {
             let { userName, password } = user[0];
             console.log({ userName, password });
 
-            const token = jwt.sign({ userName, password }, 'your_jwt_secret');
+            const token = jwt.sign({ userName, password }, '1612107');
             return res.json({ user, token });
         });
     })

@@ -148,7 +148,7 @@ class Duel extends Component {
             if (!isFirst)
                 return (
                     <div className="DuelPlay">
-                        {/* <audio src="./bg_music.mp3" autoPlay loop /> */}
+                        <audio src="./bg_music.mp3" autoPlay loop />
                         <Player color='#e84b3a' socketIO={socket} mainPlayer={true} mode="duel" name={name} avatar={avatar} />
                         <ChessBoard socketIO={socket} isFirst={isFirst} mode="duel"></ChessBoard>
                         <Player color='#56a560' mainPlayer={false} name={rivalName} avatar={rivalAvatar} />
@@ -157,7 +157,7 @@ class Duel extends Component {
             else
                 return (
                     <div className="DuelPlay">
-                        {/* <audio src="./bg_music.mp3" autoPlay loop /> */}
+                        <audio src="./bg_music.mp3" autoPlay loop />
                         <Player color='#e84b3a' socketIO={socket} mainPlayer={true} mode="duel" name={rivalName} avatar={rivalAvatar} />
                         <ChessBoard socketIO={socket} isFirst={isFirst} mode="duel"></ChessBoard>
                         <Player color='#56a560' mainPlayer={false} name={name} avatar={avatar} />

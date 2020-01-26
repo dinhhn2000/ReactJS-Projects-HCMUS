@@ -20,7 +20,6 @@ export default function Layout(props) {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">
-                            {props.userToken === "" && <Nav.Link href="#">{props.userEmail}</Nav.Link>}
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/login">Sign in</Nav.Link>
                             <Nav.Link href="/register">Sign up</Nav.Link>
@@ -39,7 +38,7 @@ export default function Layout(props) {
         return (
             <div className="body1">
                 {/* Header */}
-                <Navbar bg="dark" variant="dark" expand="lg">
+                <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
                     <Navbar.Brand href="/">
                         <img src="./logo.png" style={{ height: 30, marginRight: 10 }} alt="LOGO"></img>
                         XO_GAME
@@ -48,7 +47,7 @@ export default function Layout(props) {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">
                             {props.userToken === "" && <Nav.Link href="#">{props.userEmail}</Nav.Link>}
-                            <Nav.Link href="/profile">Hello {userName}</Nav.Link>
+                            <Nav.Link href="/">Hello {userName}</Nav.Link>
                             <Nav.Link href="/login" onClick={() => sessionStorage.clear()}>
                                 <OverlayTrigger
                                     placement='bottom'

@@ -11,7 +11,7 @@ export default function Cell(props) {
             disabled={props.value !== null || props.isDiabled ? true : false}
             style={{
                 color: props.value === 'X' ? '#e84b3a' : '#56a560',
-                backgroundColor: props.winnerMove ? '#ffb523' : '#ffe3d0'
+                backgroundColor: props.winnerMove ? '#ffb523' : '#fcf2eb'
             }}>
             {props.value}
         </button>

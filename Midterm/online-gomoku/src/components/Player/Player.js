@@ -10,9 +10,9 @@ export default class Player extends Component {
             <Container className={this.props.mainPlayer ? 'Player' : 'Rival'}
                 style={{ backgroundColor: this.props.color }}>
                 <div>
-                    <Image src={this.props.avatar === null ? '/bot.png' : this.props.avatar}
+                    <Image src={this.props.avatar === null ? '/bot.webp' : this.props.avatar}
                         className="playerAvatar"
-                        alt="avatar"
+                        alt="Not found"
                         thumbnail
                     />
                     <p className="playerName"> {this.props.name}</p>

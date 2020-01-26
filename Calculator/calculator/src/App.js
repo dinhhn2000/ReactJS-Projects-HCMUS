@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import INPUT from './components/INPUT'
+
 import '../public/styleSheet.css';
 
 class App extends Component {
@@ -13,10 +15,6 @@ class App extends Component {
       result: 0,
       autoCalculate: false,
     };
-    this.handelOnChange1 = this.handelOnChange1.bind (this);
-    this.handelOnChange2 = this.handelOnChange2.bind (this);
-    this.calculate = this.calculate.bind (this);
-    this.autoCalculate = this.autoCalculate.bind (this);
   }
 
   handelOnChange1 = async(e) => {
@@ -67,7 +65,7 @@ class App extends Component {
             <input
               type="text"
               value={this.state.value1}
-              onChange={this.handelOnChange1}
+              onChange={(e) => this.handelOnChange1(e)}
             />
           </div>
           <h1>+</h1>
@@ -75,18 +73,18 @@ class App extends Component {
             <input
               type="text"
               value={this.state.value2}
-              onChange={this.handelOnChange2}
+              onChange={(e) => this.handelOnChange2(e)}
             />
           </div>
         </div>
-        <button className="resultBtn" onClick={this.calculate}>
+        <button className="resultBtn" onClick={() => this.calculate()}>
           CALCULATE
         </button>
         <div>
           {this.state.autoCalculate === true
             ? <button
                 className="resultBtnAutoGreen"
-                onClick={this.autoCalculate}
+                onClick={() => this.autoCalculate()}
               >
                 AUTO CALCULATE
               </button>

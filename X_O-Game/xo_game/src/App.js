@@ -1,31 +1,31 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 import ChessBoard from './containers/chessboard';
 
 class App extends Component {
-  constructor (props) {
-    super (props);
+  constructor(props) {
+    super(props);
     this.state = {
       col: 10,
       row: 10,
     };
   }
 
-  async changeChessSizeCol (e) {
-    await this.setState ({
-      col: parseInt (e.target.value, 10),
+  changeChessSizeCol(e) {
+    this.setState({
+      col: parseInt(e.target.value, 10),
     });
   }
 
-  async changeChessSizeRow (e) {
-    await this.setState ({
-      row: parseInt (e.target.value, 10),
+  changeChessSizeRow(e) {
+    this.setState({
+      row: parseInt(e.target.value, 10),
     });
   }
 
-  render () {
+  render() {
     return (
       <div className="App">
         <div className="App-header">
@@ -37,7 +37,7 @@ class App extends Component {
           className="Input"
           type="number"
           value={this.state.row}
-          onChange={e => this.changeChessSizeRow (e)}
+          onChange={e => this.changeChessSizeRow(e)}
           min="10"
           max="30"
         />
@@ -46,15 +46,15 @@ class App extends Component {
           className="Input"
           type="number"
           value={this.state.col}
-          onChange={e => this.changeChessSizeCol (e)}
+          onChange={e => this.changeChessSizeCol(e)}
           min="10"
           max="30"
         />
         <p>(Max is 30 & Min is 10)</p>
-        <p style={{color: 'red'}}>
+        <p style={{ color: 'red' }}>
           (Below or above the limit may crash the app)
         </p>
-        <button id="restartBtn" onClick={() => window.location.reload ()}>
+        <button id="restartBtn" onClick={() => window.location.reload()}>
           RESTART GAME
         </button>
         <ChessBoard

@@ -1,9 +1,14 @@
 .chessBoardCell {
-    background: #ffe3d0;
+    background: #fcf2eb;
     width: 30px;
     height: 30px;
     border: 2px solid rgb(131, 131, 131);
     margin: 0;
     font-weight: 1000;
     font-size: large;
+    transition: 0.1s;
+}
+
+.chessBoardCell:hover{
+    background: #2df748 !important;
 }
