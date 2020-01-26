@@ -5,6 +5,7 @@
 * The game has 2 mode
     * Single mode
     * Duel mode (2 people)
+* Demonstration: https://gomoku1612107.herokuapp.com/
 ## Techstack
 * Front-end
     * Core: React JS / Redux
